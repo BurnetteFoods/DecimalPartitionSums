@@ -25,7 +25,7 @@ namespace DecimalPartitionSums
 
             for(int i = 0; i < Rows.Count; i++)
             {
-                RowsUsed[i] = false;
+                RowsUsed.Add(false);
             }
 
             done = false;
