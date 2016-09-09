@@ -84,6 +84,9 @@ namespace DecimalPartitionSums
                         Console.WriteLine(string.Format("({0},{1})", Rows[i].Item1, Rows[i].Item2));
                     }
                 }
+
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
             }
         }
     }
