@@ -49,6 +49,7 @@ namespace DecimalPartitionSums
 
                 key = int.Parse(line[0]);
                 val = decimal.Parse(line[1]);
+                Rows.Add(new Tuple<int, decimal>(key, val));
             }
         }
     }
