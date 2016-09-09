@@ -81,7 +81,7 @@ namespace DecimalPartitionSums
                 {
                     if (RowsUsed[i])
                     {
-                        Console.WriteLine(string.Format("({0},{1})"));
+                        Console.WriteLine(string.Format("({0},{1})", Rows[i].Item1, Rows[i].Item2));
                     }
                 }
             }
