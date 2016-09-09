@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace DecimalPartitionSums
 {
@@ -15,6 +16,8 @@ namespace DecimalPartitionSums
         public List<bool> RowsUsed { get; set; }
         
         private bool done;
+
+        private StreamWriter sw;
 
         public Trial(Transformer t)
         {
@@ -33,11 +36,15 @@ namespace DecimalPartitionSums
 
         public void run()
         {
+            sw = File.CreateText("combos.csv");
+
             while(!done)
             {
                 test();
                 advance();
             }
+
+            sw.Close();
         }
 
         public void advance()
@@ -75,18 +82,17 @@ namespace DecimalPartitionSums
 
             if(s == Total)
             {
-                Console.WriteLine("Successful combination:");
+                sw.WriteLine("Combination:");
 
                 for(int i = 0; i < RowsUsed.Count; i++)
                 {
                     if (RowsUsed[i])
                     {
-                        Console.WriteLine(string.Format("({0},{1})", Rows[i].Item1, Rows[i].Item2));
+                        sw.WriteLine(string.Format("({0},{1})", Rows[i].Item1, Rows[i].Item2));
                     }
                 }
 
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
+                sw.WriteLine();
             }
         }
     }
